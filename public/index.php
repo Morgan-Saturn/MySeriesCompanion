@@ -1,3 +1,9 @@
+<?php
+
+    require_once("../private/config.php");
+
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -9,7 +15,7 @@
 <body>
     <h1>Bienvenue ! Qu'allez-vous regarder aujourd'hui ? Vos séries</h1>
 
-    <a href="ajout_series.html"><button>Ajouter une série</button></a>
+    <a href="ajout_series.php"><button>Ajouter une série</button></a>
 
 <!-- popup  -->
 </body>

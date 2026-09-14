@@ -1,3 +1,9 @@
+<?php
+
+    require_once("../private/config.php");
+
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
