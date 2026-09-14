@@ -1,23 +1,14 @@
 <?php
 
     require_once("../private/config.php");
+    require_once("../private/fonctions_ajout.php");
+
+    $titre = 'Ajouter une série';
+    require __DIR__ . '/../private/header.php';
 
 ?>
-
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="png" href="assets/favicon.png" />
-    <title>MySeriesCompanion</title>
-</head>
-
-<body>
-    <h1>Ajouter une série</h1>
-
     <div class="ajout_serie">
-        <form class="serie">
+        <form class="serie" method="post" action="details_saison.php">
             <label>Nom - champ obligatoire</label>
             <input type="text" id="ajouter_serie" name="nom_serie" maxlength="255" placeholder="Saisissez le titre de votre série ..." required>
             <label>Résumé</label>
@@ -27,8 +18,9 @@
             <label>Date de sortie - champ obligatoire</label>
             <input type="date" id="date_sortie_serie" name="date_sortie_serie" required>
 
-            <button class="valider">Valider</button>
-            <button class="annuler">Annuler</button>
+            <button class="valider" type="submit">Valider</button>
+            <button class="annuler" type="reset">Annuler</button>
         </form>
     </div>
 </body>
+</html>

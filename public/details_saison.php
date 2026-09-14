@@ -1,38 +1,15 @@
 <?php
 
     require_once("../private/config.php");
+    $titre = 'Ajouter une série';
+    require __DIR__ . '/../private/header.php';
 
 ?>
-
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="png" href="assets/favicon.png" />
-    <title>MySeriesCompanion</title>
-</head>
-
-<body>
-    <h1>Détails de la saison</h1>
-
-   <!-- si pas d'épisodes, rien, sinon liste des épisodes à récupérer en base -->
-    <!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="png" href="assets/favicon.png" />
-    <title>MySeriesCompanion</title>
-</head>
-
-<body>
-    <h1>Détails de votre série</h1>
     <button class="voir_details_saison">Voir les détails de la saison ...</button>
 
     <h2>Ajouter un nouvel épisode :</h2>
     <div class="ajout_episode">
-        <form class="episode">
+        <form class="episode" method="post" action="details_saison.php">
             <label>Nom - champ obligatoire</label>
             <input type="text" id="ajouter_episode" name="nom_episode" maxlength="255" placeholder="Saisissez le titre de l'épisode ..." required>
             <label>Résumé</label>
@@ -44,9 +21,9 @@
             <label>Durée</label>
             <input type="number" id="duree_episode" name="duree_episode">
 
-            <button class="valider">Valider</button>
-            <button class="annuler">Annuler</button>
+            <button type="submit" class="valider">Valider</button>
+            <button class="annuler" type="reset">Annuler</button>
         </form>
     </div>
 </body>
-</body>
+</html>
