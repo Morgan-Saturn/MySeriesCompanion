@@ -16,7 +16,5 @@
     <h1>Bienvenue ! Qu'allez-vous regarder aujourd'hui ? Vos séries</h1>
 
     <a href="ajout_series.php"><button>Ajouter une série</button></a>
-
-<!-- popup  -->
 </body>
 </html>
