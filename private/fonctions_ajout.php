@@ -2,6 +2,8 @@
 
     declare(strict_types=1);
 
+    //fonctions de recherche des séries, saisons et épisodes
+
     function trouver_series_par_nom(PDO $pdo, string $nom): ?array {
         $sql = "SELECT id, nom, resume, vignette, date_sortie
         FROM series
@@ -14,6 +16,34 @@
 
         return $serie ?: null;
     }
+
+    function trouver_saisons_par_nom(PDO $pdo, string $nom): ?array {
+        $sql = "SELECT id, nom, resume, vignette, date_sortie
+        FROM saisons
+        WHERE nom = :nom";
+
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute([':nom' => $nom]);
+
+        $saison = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        return $saison ?: null;
+    }
+
+    function trouver_episodes_par_nom(PDO $pdo, string $nom): ?array {
+        $sql = "SELECT id, nom, resume, vignette, date_sortie, duree
+        FROM series
+        WHERE nom = :nom";
+
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute([':nom' => $nom]);
+
+        $episode = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        return $episode ?: null;
+    }
+
+    //fonctions d'ajout de séries, saisons ou épisodes dans la bdd
 
     function ajouter_serie(PDO $pdo, array $series): int {
         try {
@@ -41,4 +71,56 @@
         }
     }
 
-?>
+    function ajouter_saison(PDO $pdo, array $saisons): int {
+        try {
+            $saison_existe = trouver_saisons_par_nom($pdo, $saisons['nom']);
+
+            if ($saison_existe !== null) {
+                $saison_id = (int) $saison_existe['id'];
+            } else {
+                $sql_saison = "INSERT INTO saisons (nom, resume, vignette, date_sortie) VALUES (:nom, :resume, :vignette, :date_sortie";
+
+                $resume = isset($saisons['resume']) ? $saisons['resume'] : null;
+                $vignette = isset($saisons['vignette']) ? $saisons['vignette'] : null;
+
+                $stmt_saison = $pdo->prepare($sql_saison);
+                $stmt_saison->execute([":nom" => $saisons['nom'],
+                                      ":resume" => $resume,
+                                      ":vignette" => $vignette,
+                                      ":date_sortie" => $saisons['date_sortie']
+                                    ]);
+                $saison_id = (int) $pdo->lastInsertId();
+            }
+            return $saison_id;
+        } catch (Throwable $e) {
+            throw $e;
+        }
+    }
+
+    function ajouter_episode(PDO $pdo, array $episode): int {
+        try {
+            $episode_existe = trouver_episodes_par_nom($pdo, $episode['nom']);
+
+            if ($episode_existe !== null) {
+                $episode_id = (int) $episode_existe['id'];
+            } else {
+                $sql_episode = "INSERT INTO episode (nom, resume, vignette, date_sortie, duree) VALUES (:nom, :resume, :vignette, :date_sortie, :duree";
+
+                $resume = isset($episode['resume']) ? $episode['resume'] : null;
+                $vignette = isset($episode['vignette']) ? $episode['vignette'] : null;
+                $duree = isset($episode['duree']) ? $episode['duree'] : null;
+
+                $stmt_episode = $pdo->prepare($sql_episode);
+                $stmt_episode->execute([":nom" => $episode['nom'],
+                                      ":resume" => $resume,
+                                      ":vignette" => $vignette,
+                                      ":date_sortie" => $episode['date_sortie'],
+                                      ":duree" => $duree
+                                    ]);
+                $episode_id = (int) $pdo->lastInsertId();
+            }
+            return $episode_id;
+        } catch (Throwable $e) {
+            throw $e;
+        }
+    }
