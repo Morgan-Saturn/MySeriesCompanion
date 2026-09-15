@@ -1,0 +1,2 @@
+INSERT INTO series (id, nom, resume, date_sortie) VALUE (1, "Les Feux de l'Amour", "Il s'en passe des choses dans la ville de Genoa City ! Des gens riches sortent ensemble et parfois se marient et divorcent pour se remarier ensuite, parfois ils forment des teams pour pourrir les journées de leurs ennemis communs ...", "1989-08-16");
+INSERT INTO series (id, nom, resume, date_sortie) VALUE (2, "Inspecteur Barnaby", "L'inspecteur Barnaby et ses potes mènent sérieusement l'enquête pour éclaircir des mystères.", "1997-03-23");

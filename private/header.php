@@ -3,7 +3,6 @@
 $titre = $titre ?? "Bienvenue ! Qu'allons-nous regarder aujourd'hui ?"
 
 ?>
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
