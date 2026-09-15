@@ -5,8 +5,6 @@
     require __DIR__ . '/../private/header.php';
 
 ?>
-    <button class="voir_details_saison">Voir les détails de la saison ...</button>
-
     <h2>Ajouter une nouvelle saison :</h2>
     <div class="ajout_saison">
         <form class="saison" method="post" action="details_saison.php">
@@ -22,6 +20,17 @@
             <button class="valider">Valider</button>
             <button class="annuler">Annuler</button>
         </form>
+    </div>
+    <div class="series_container">
+        <h2>Liste des saisons</h2>
+        <div class="series_grid">
+            <div class="serie">
+                <img src="" alt="vignette représentant la saison"/>
+                <h3>Titre saison</h3>
+                <p class="resume">Résumé saison</p>
+                <a href="details_saison.php"><button class="details">Voir les détails</button></a>
+            </div>
+        </div>
     </div>
 </body>
 </html>

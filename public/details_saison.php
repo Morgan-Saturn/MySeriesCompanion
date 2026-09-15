@@ -1,12 +1,10 @@
 <?php
 
     require_once("../private/config.php");
-    $titre = 'Ajouter une série';
+    $titre = 'Details de la saison';
     require __DIR__ . '/../private/header.php';
 
 ?>
-    <button class="voir_details_saison">Voir les détails de la saison ...</button>
-
     <h2>Ajouter un nouvel épisode :</h2>
     <div class="ajout_episode">
         <form class="episode" method="post" action="details_saison.php">
@@ -24,6 +22,16 @@
             <button type="submit" class="valider">Valider</button>
             <button class="annuler" type="reset">Annuler</button>
         </form>
+    </div>
+    <div class="series_container">
+        <h2>Liste des épisodes</h2>
+        <div class="series_grid">
+            <div class="serie">
+                <img src="" alt="vignette représentant l'épisode"/>
+                <h3>Titre saison</h3>
+                <p class="resume">Résumé épisode</p>
+            </div>
+        </div>
     </div>
 </body>
 </html>
