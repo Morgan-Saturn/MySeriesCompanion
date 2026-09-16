@@ -16,7 +16,4 @@ $titre = $titre ?? "Bienvenue ! Qu'allons-nous regarder aujourd'hui ?"
 </head>
 
 <body>
-    <div class="hero bg-base-200">
-        <div class="hero-content flex-col lg:flex-row">
-            <h1 class="text-5xl font-bold"><?php echo $titre; ?></h1>
-            
+    <h1 class="text-5xl font-bold text-center m-5"><?php echo $titre; ?></h1>
