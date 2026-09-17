@@ -13,8 +13,8 @@
     require __DIR__ . '/../private/header.php';
 
 ?>
-    <div class="ajout_serie">
-        <?php echo_form($form_type, false, null); ?>
-    </div>
+<div class="flex justify-center m-3">
+    <?php echo_form($form_type, false, null); ?>
+</div>
 </body>
 </html>

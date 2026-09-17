@@ -17,12 +17,9 @@
     }
     if($saison == null) {
         header('Location: index.php');
+        exit;
     }
 ?>
-    <h2>Ajouter un nouvel épisode :</h2>
-    <div class="ajout_episode">
-        <?php echo_form($form_type, true, $saison['id']); ?>
-    </div>
     <div class="saisons_container">
         <h2 class="text-4xl font-bold m-3">Liste des épisodes</h2>
         <div class="grid grid-cols-3 gap-4 m-3 justify-items-center">
@@ -36,6 +33,7 @@
                     <p class="resume">Résumé épisode</p>
                 </div>
             </div>
+            <?php echo_form($form_type, true, $saison['id']); ?>
         </div>
     </div>
 </body>
