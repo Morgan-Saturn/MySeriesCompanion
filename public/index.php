@@ -18,7 +18,7 @@
             <h3 class="card-title">Titre série</h3>
             <p class="resume">Résumé série</p>
             <div class="card-actions justify-center">
-                <a class="btn btn-info btn-xs sm:btn-sm md:btn-md lg:btn-lg xl:btn-xl" href="details_serie.php">Voir les détails</a>
+                <a class="btn btn-info btn-xs sm:btn-sm md:btn-md lg:btn-lg xl:btn-xl" href="details_serie.php?serie_id=1">Voir les détails</a>
             </div>
         </div>
     </div>
