@@ -7,8 +7,9 @@ function traiteFormulaire(PDO $pdo, string $form_type) {
     {
         switch ($form_type) {
             case "serie":
-                ajouter_serie($pdo, $_POST);
-                break;
+                $serie_id = ajouter_serie($pdo, $_POST);
+                header("Location: ../public/details_serie.php?serie_id=" . $serie_id);
+                exit;
             case "saison":
                 ajouter_saison($pdo, $_POST);
                 break;
