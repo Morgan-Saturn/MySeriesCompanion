@@ -26,6 +26,14 @@
     $les_saisons = recuperer_saisons($pdo, $serie['id']);
 
 ?>
+<div class="flex justify-center">
+    <div class="breadcrumbs text-lg">
+    <ul>
+        <li><a href="index.php">Séries</a></li>
+        <li><?= e($serie['nom']) ?></li>
+    </ul>
+    </div>
+</div>
     <div class="series_container">
         <h2 class="text-4xl font-bold m-3">Liste des saisons</h2>
         <div class="grid grid-cols-4 gap-4 m-3 justify-items-center">
