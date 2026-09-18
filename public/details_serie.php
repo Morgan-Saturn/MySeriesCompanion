@@ -8,10 +8,6 @@
     require_once("../private/fonctions_affichage.php");
 
     $pdo = connect();
-    $les_saisons = afficher_saison($pdo);
-
-    $form_type = "saison";
-    traiteFormulaire($pdo, $form_type);
 
     $serie = null;
 
@@ -24,6 +20,11 @@
         exit;
     }
 
+    $form_type = "saison";
+    traiteFormulaire($pdo, $form_type);
+
+    $les_saisons = recuperer_saisons($pdo, $serie['id']);
+
 ?>
     <div class="series_container">
         <h2 class="text-4xl font-bold m-3">Liste des saisons</h2>
@@ -35,13 +36,13 @@
             foreach($les_saisons as $la_saison) { ?>
                 <div class="card bg-base-100 shadow-sm lg:w-100">
                     <figure>
-                        <img src="<?php echo(e($la_saison['vignette'])) ?>" alt="vignette représentant la série"/>
+                        <img src="<?= e($la_saison['vignette']) ?>" alt="vignette représentant la série"/>
                     </figure>
                     <div class="card-body">
-                        <h3 class="card-title"><?php echo(e($la_saison['nom'])) ?></h3>
-                        <p class="resume"><?php echo(e($la_saison['resume'])) ?></p>
+                        <h3 class="card-title"><?= e($la_saison['nom']) ?></h3>
+                        <p class="resume"><?= e($la_saison['resume']) ?></p>
                         <div class="card-actions justify-center">
-                            <a class="btn btn-info btn-xs sm:btn-sm md:btn-md lg:btn-lg xl:btn-xl" href="details_saison.php?saison_id=2">Voir les détails</a>
+                            <a class="btn btn-info btn-xs sm:btn-sm md:btn-md lg:btn-lg xl:btn-xl" href="details_saison.php?saison_id=<?= $la_saison['id'] ?>">Voir les détails</a>
                         </div>
                     </div>
                 </div>

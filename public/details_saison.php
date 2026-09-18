@@ -7,13 +7,8 @@
     require_once("../private/fonctions_affichage.php");
 
     $pdo = connect();
-    $les_episodes = afficher_episode($pdo);
-
-    $form_type = "episode";
-    traiteFormulaire($pdo, $form_type);
-
+    
     $saison = null;
-
     if(isset($_GET['saison_id'])) {
         $saison_id = intval($_GET['saison_id']);
         $saison = trouver_saison_par_id($pdo, $saison_id);
@@ -22,6 +17,11 @@
         header('Location: index.php');
         exit;
     }
+
+    $form_type = "episode";
+    traiteFormulaire($pdo, $form_type);
+
+    $les_episodes = recuperer_episodes($pdo, $saison['id']);
 ?>
     <div class="saisons_container">
         <h2 class="text-4xl font-bold m-3">Liste des épisodes</h2>

@@ -7,7 +7,7 @@
         return htmlspecialchars($valeur ?? '', ENT_QUOTES, 'UTF-8');
     }
 
-    function afficher_serie(PDO $pdo): ?array
+    function recuperer_serie(PDO $pdo): ?array
     {
         $serie = $pdo->query("SELECT id, nom, resume, vignette, date_sortie
                               FROM series
@@ -16,20 +16,22 @@
         return $serie->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    function afficher_saison(PDO $pdo): ?array
+    function recuperer_saisons(PDO $pdo, int $serie_id): ?array
     {
-        $saison = $pdo->query("SELECT id, nom, resume, vignette, date_sortie
+        $stmt = $pdo->prepare("SELECT id, nom, resume, vignette, date_sortie
                                FROM saisons
-                               ORDER BY nom
-                            ");
-        return $saison->fetchAll(PDO::FETCH_ASSOC);
+                               WHERE serie_id = :serie_id
+                               ORDER BY date_sortie");
+        $stmt->execute([":serie_id" => $serie_id]);
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    function afficher_episode(PDO $pdo): ?array
+    function recuperer_episodes(PDO $pdo, int $saison_id): ?array
     {
-        $episode = $pdo->query("SELECT id, nom, resume, vignette, date_sortie, duree
+        $stmt = $pdo->prepare("SELECT id, nom, resume, vignette, date_sortie, duree
                                FROM episode
-                               ORDER BY nom
-                            ");
-        return $episode->fetchAll(PDO::FETCH_ASSOC);
+                               WHERE saison_id = :saison_id
+                               ORDER BY date_sortie");
+        $stmt->execute([":saison_id" => $saison_id]);
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
