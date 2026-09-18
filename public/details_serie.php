@@ -1,8 +1,6 @@
 <?php
 
     require_once("../private/config.php");
-    $titre = 'Détails de votre série';
-    require __DIR__ . '/../private/header.php';
     require_once("../private/forms.php");
     require_once("../private/traitement_formulaire.php");
     require_once("../private/fonctions_affichage.php");
@@ -19,7 +17,9 @@
         header('Location: index.php');
         exit;
     }
-
+    
+    $titre = $serie['nom'];
+    require __DIR__ . '/../private/header.php';
     $form_type = "saison";
     traiteFormulaire($pdo, $form_type);
 
@@ -40,6 +40,7 @@
                     </figure>
                     <div class="card-body">
                         <h3 class="card-title"><?= e($la_saison['nom']) ?></h3>
+                        <h4 class="card-title"><?= e($la_saison['date_sortie']) ?></h4>
                         <p class="resume"><?= e($la_saison['resume']) ?></p>
                         <div class="card-actions justify-center">
                             <a class="btn btn-info btn-xs sm:btn-sm md:btn-md lg:btn-lg xl:btn-xl" href="details_saison.php?saison_id=<?= $la_saison['id'] ?>">Voir les détails</a>

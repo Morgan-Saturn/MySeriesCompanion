@@ -4,3 +4,4 @@ INSERT INTO series (id, nom, resume, vignette, date_sortie) VALUE (2, "Inspecteu
 INSERT INTO series(id, nom, resume, vignette, date_sortie) VALUE (3, "The Big Bang Theory", "Sheldon est complètement perché avec sa meuf, Wolowitz squatte toujours chez sa mère à la trentaine et Raj est un harceleur. Mais j'ai binge watché quand même à l'époque.", "https://static.wikia.nocookie.net/international-entertainment-project/images/6/6e/The_Big_Bang_Theory_poster.jpg/revision/latest/thumbnail/width/360/height/450?cb=20220123191750", "2007-09-24");
 INSERT INTO series(id, nom, resume, date_sortie) VALUE (4, "Plus belle la vie", "Jsp j'ai jamais regardé.", "2004-08-30");
 INSERT INTO series(id, nom, date_sortie) VALUE (5, "Le journal de Meg", "2008-06-23");
+INSERT INTO series(id, nom, resume, date_sortie) VALUE (6, '<script>alert("xss");</script>', 'hacking de ouf', '2018-01-04')

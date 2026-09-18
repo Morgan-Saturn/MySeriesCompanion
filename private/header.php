@@ -1,5 +1,7 @@
 <?php 
 
+require_once("../private/fonctions_affichage.php");
+
 $titre = $titre ?? "Bienvenue ! Qu'allons-nous regarder aujourd'hui ?"
 
 ?>
@@ -16,4 +18,4 @@ $titre = $titre ?? "Bienvenue ! Qu'allons-nous regarder aujourd'hui ?"
 </head>
 
 <body>
-    <h1 class="text-5xl font-bold text-center m-5"><?php echo $titre; ?></h1>
+    <h1 class="text-5xl font-bold text-center m-5"><?php echo e($titre); ?></h1>

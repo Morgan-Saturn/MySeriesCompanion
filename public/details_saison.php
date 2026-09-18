@@ -37,7 +37,8 @@
                         </figure>
                         <div class="card-body">
                             <h3 class="card-title"><?php echo(e($un_episode['nom'])) ?></h3>
-                            <h3 class="card-title">Durée : <?php echo(e($un_episode['duree'])) ?> mins</h3>
+                            <h4 class="card-title"><?= e($un_episode['date_sortie']) ?></h4>
+                            <h4 class="card-title">Durée : <?php echo(e($un_episode['duree'])) ?> mins</h4>
                             <p class="resume"><?php echo(e($un_episode['resume'])) ?></p>
                         </div>
             </div>
