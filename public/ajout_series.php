@@ -13,6 +13,9 @@
     require __DIR__ . '/../private/header.php';
 
 ?>
+<div class="flex justify-center">
+    <a class="btn btn-info btn-xs sm:btn-sm md:btn-md lg:btn-lg xl:btn-xl" href="index.php">Retour aux séries</a>
+</div>
 <div class="flex justify-center m-3">
     <?php echo_form($form_type, false, null); ?>
 </div>

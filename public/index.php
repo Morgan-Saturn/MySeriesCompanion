@@ -13,7 +13,7 @@
 </div>
 <div class="lg:mx-15">
     <h2 class="text-4xl font-bold m-3">Mes séries</h2>
-    <div class="grid grid-cols-3 gap-4 m-3 justify-items-center">
+    <div class="grid grid-cols-4 gap-4 m-3 justify-items-center">
         <?php if(empty($les_series)) { ?>
                 <p>Pas de séries disponibles.</p>
         <?php } else { 

@@ -25,7 +25,7 @@
 ?>
     <div class="saisons_container">
         <h2 class="text-4xl font-bold m-3">Liste des épisodes</h2>
-        <div class="grid grid-cols-3 gap-4 m-3 justify-items-center">
+        <div class="grid grid-cols-4 gap-4 m-3 justify-items-center">
             <div class="card bg-base-100 shadow-sm lg:w-100">
                 <?php if(empty($les_episodes)) { ?>
                 <p>Pas d'épisodes disponibles.</p>

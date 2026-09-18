@@ -28,7 +28,7 @@
 ?>
     <div class="series_container">
         <h2 class="text-4xl font-bold m-3">Liste des saisons</h2>
-        <div class="grid grid-cols-3 gap-4 m-3 justify-items-center">
+        <div class="grid grid-cols-4 gap-4 m-3 justify-items-center">
             <?php if(empty($les_saisons)) { ?>
                 <p>Pas de saisons disponibles.</p>
             <?php } else
