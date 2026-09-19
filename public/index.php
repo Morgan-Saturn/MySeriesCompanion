@@ -27,7 +27,9 @@
                         <h4 class="card-title"><?= e($la_serie['date_sortie']) ?></h4>
                         <p class="resume"><?= e($la_serie['resume']) ?></p>
                         <div class="card-actions justify-center">
-                            <a class="btn btn-info btn-xs sm:btn-sm md:btn-md lg:btn-lg xl:btn-xl" href="details_serie.php?serie_id=<?= $la_serie['id'] ?>">Voir les détails</a>
+                            <a
+                                class="btn btn-info btn-xs sm:btn-sm md:btn-md lg:btn-lg xl:btn-xl"
+                                href="details_serie.php?serie_id=<?= $la_serie['id'] ?>">Voir les détails</a>
                         </div>
                     </div>
                 </div>

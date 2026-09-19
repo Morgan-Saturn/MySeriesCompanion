@@ -22,7 +22,18 @@
     traiteFormulaire($pdo, $form_type);
 
     $les_episodes = recuperer_episodes($pdo, $saison['id']);
+
+    $serie = trouver_series_par_id($pdo, $saison['serie_id']);
 ?>
+<div class="flex justify-center">
+    <div class="breadcrumbs text-lg">
+    <ul>
+        <li><a href="index.php">Séries</a></li>
+        <li><a href="details_serie.php?serie_id=<?= e($serie['id']) ?>"><?= e($serie['nom']) ?></a></li>
+        <li><?= e($saison['nom']) ?></li>
+    </ul>
+    </div>
+</div>
     <div class="saisons_container">
         <h2 class="text-4xl font-bold m-3">Liste des épisodes</h2>
         <div class="grid grid-cols-4 gap-4 m-3 justify-items-center">

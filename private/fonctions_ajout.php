@@ -57,7 +57,7 @@
     }
 
     function trouver_saison_par_id(PDO $pdo, int $id): ?array {
-        $sql = "SELECT id, nom, resume, vignette, date_sortie
+        $sql = "SELECT id, nom, resume, vignette, date_sortie, serie_id
         FROM saisons
         WHERE id = :id";
 
